@@ -11,11 +11,10 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'title' => $faker->sentence(mt_rand(3, 10)),
+        'content' => join("\n\n", $faker->paragraphs(mt_rand(3, 6))),
+        'created_at' => $faker->dateTimeBetween('-1 month', '+3 days'),
     ];
 });
