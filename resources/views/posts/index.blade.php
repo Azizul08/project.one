@@ -5,7 +5,7 @@
         @if (count($posts))
             @foreach($posts as $post)
                 <article>
-                    <a href="#"><h1>{!! $post->title !!}</h1></a>
+                    <a href="{!! action('PostsController@show', $post->id) !!}"><h1>{!! $post->title !!}</h1></a>
                     <div>
                         <p class="post-info"><span>Created at: {{$post->created_at->format('d-M-Y')}}</span></p>
                     </div>
